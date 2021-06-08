@@ -23,6 +23,7 @@ Route::get('/posts/{post}', function ($slug) {
     $path = __DIR__ . "/../resources/posts/{$slug}.html";
 
     if (! file_exists($path)) {
+        return redirect('/');
         abort(404);
     }
 
