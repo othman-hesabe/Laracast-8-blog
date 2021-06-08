@@ -18,3 +18,7 @@ Route::get('/', function () {
     // return "Hello";
     // return ['foo' => 'bar'];
 });
+
+Route::get('/post', function () {
+    return view('posts');
+});
