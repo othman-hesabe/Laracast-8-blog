@@ -27,8 +27,8 @@ Route::get('/posts/{post}', function ($slug) {
         // abort(404);
     }
 
-    // Cache every 5 seconds
-    $post = cache()->remember("posts.{$slug}", 5, function () use ($path) {
+    // Cache every 20 mins
+    $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function () use ($path) {
         var_dump('file_get_contents');
         return file_get_contents($path);
     });
