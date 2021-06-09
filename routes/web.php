@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// test comment
 Route::get('/', function () {
     return view('posts');
     // return "Hello";
