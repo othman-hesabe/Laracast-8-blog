@@ -28,17 +28,5 @@ Route::get('/posts/{post}', function ($slug) {
         'post'  => $post
     ]);
 
-    // if (! file_exists($path= __DIR__ . "/../resources/posts/{$slug}.html")) {
-    //     return redirect('/');
-    //     // abort(404);
-    // }
 
-    // // Cache every 20 mins
-    // $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function () use ($path) {
-    //     return file_get_contents($path);
-    // });
-
-    // return view('post', [
-    //     'post' => $post
-    // ]);
 })->where('post', '[A-z_\-]+');
