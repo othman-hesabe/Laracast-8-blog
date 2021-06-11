@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Model\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 // test comment
 Route::get('/', function () {
+    return Post::find('my-first-post');
     return view('posts');
     // return "Hello";
     // return ['foo' => 'bar'];
 });
 
 Route::get('/posts/{post}', function ($slug) {
-    // Find a post using a slug and pass it to a view called "post"
-    $post = \App\Model\Post::find($slug);
-
     return view('post', [
-        'post'  => $post
+        'post' => \App\Model\Post::find($slug)
     ]);
-
-
 })->where('post', '[A-z_\-]+');
