@@ -16,9 +16,15 @@ use  App\Model\Post;
 
 // test comment
 Route::get('/', function () {
-    return view('posts', [
-        'posts' => Post::all()
-    ]);
+    $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile(
+        resource_path('posts/my-fourth-post.html')
+
+    );
+
+    ddd($document -> matter());
+//    return view('posts', [
+//        'posts' => Post::all()
+//    ]);
 });
 
 Route::get('/posts/{post}', function ($slug) {
