@@ -9,6 +9,29 @@ use Illuminate\Support\Facades\File;
 
 class Post
 {
+    public $title;
+
+    public $excerpt;
+
+    public $data;
+
+    public $body;
+
+    /**
+     * Post constructor.
+     * @param $title
+     * @param $excerpt
+     * @param $data
+     * @param $body
+     */
+    public function __construct($title, $excerpt, $data, $body)
+    {
+        $this->title = $title;
+        $this->excerpt = $excerpt;
+        $this->data = $data;
+        $this->body = $body;
+    }
+
     public static function all()
     {
         $files = File::files(resource_path("posts/"));
