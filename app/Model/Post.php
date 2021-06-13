@@ -17,6 +17,8 @@ class Post
 
     public $body;
 
+    public $slug;
+
     /**
      * Post constructor.
      * @param $title
@@ -24,12 +26,13 @@ class Post
      * @param $data
      * @param $body
      */
-    public function __construct($title, $excerpt, $data, $body)
+    public function __construct($title, $excerpt, $data, $body, $slug)
     {
         $this->title = $title;
         $this->excerpt = $excerpt;
         $this->data = $data;
         $this->body = $body;
+        $this->slug = $slug;
     }
 
     public static function all()
