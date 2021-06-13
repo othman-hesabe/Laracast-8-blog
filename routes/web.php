@@ -19,14 +19,21 @@ use  App\Model\Post;
 Route::get('/', function () {
 
     $files = File::files(resource_path("posts"));
-    $document = [];
+    $posts = [];
 
     foreach ($files as $file) {
-        $document[] = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
+        $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);;
 
+        $posts[] = new Post(
+            $document->title,
+            $document->excerpt,
+            $document->date,
+            $document->body()
+        );
     }
 
-    ddd($document);
+    ddd($posts);
+
 });
 
 Route::get('/posts/{post}', function ($slug) {
