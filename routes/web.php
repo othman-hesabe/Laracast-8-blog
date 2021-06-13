@@ -16,12 +16,11 @@ use  App\Model\Post;
 
 // test comment
 Route::get('/', function () {
-//    return Post::find('my-first-post');
+    $posts = Post::all();
+    ddd($posts);
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => $posts
     ]);
-    // return "Hello";
-    // return ['foo' => 'bar'];
 });
 
 Route::get('/posts/{post}', function ($slug) {
