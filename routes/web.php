@@ -17,34 +17,8 @@ use  App\Model\Post;
 
 // test comment
 Route::get('/', function () {
-    $files = File::files(resource_path("posts"));
-
-    $posts = collect($files)
-        ->map(function ($file) {
-            $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);;
-            return new Post(
-                $document->title,
-                $document->excerpt,
-                $document->date,
-                $document->body(),
-                $document->slug
-            );
-        });
-
-    $posts = array_map(function ($file) {
-        $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);;
-        return new Post(
-            $document->title,
-            $document->excerpt,
-            $document->date,
-            $document->body(),
-            $document->slug
-        );
-    }, $files);
-
-
     return view('posts', [
-        'posts' => $posts
+        'posts' => Post::all()
     ]);
 
 });
