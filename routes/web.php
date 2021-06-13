@@ -16,8 +16,10 @@ use  App\Model\Post;
 
 // test comment
 Route::get('/', function () {
-    return Post::find('my-first-post');
-    return view('posts');
+//    return Post::find('my-first-post');
+    return view('posts', [
+        'posts' => Post::all()
+    ]);
     // return "Hello";
     // return ['foo' => 'bar'];
 });
