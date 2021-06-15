@@ -1,12 +1,5 @@
-@extends('components.layout')
-
-@section('banner')
-    <h1> My Blog</h1>
-@endsection
-
-@section('content')
+<x-layout>
     @foreach ($posts as $post)
-        {{--    @dd($loop)--}}
         <article>
             <h1>
                 <a href="/posts/{{$post->slug}}">
@@ -18,4 +11,4 @@
             </div>
         </article>
     @endforeach
-@endsection
+</x-layout>
