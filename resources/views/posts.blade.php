@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 
 @section('banner')
     <h1> My Blog</h1>
