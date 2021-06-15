@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use  App\Model\Post;
+use  App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 });
 
-Route::get('/posts/{post}', function ($slug) {
+Route::get('/posts/{post}', function ($id) {
     return view('post', [
-        'post' => \App\Model\Post::findOrFail($slug)
+        'post' => \App\Post::findOrFail($id)
     ]);
 });
