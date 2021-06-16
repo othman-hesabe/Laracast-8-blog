@@ -16,4 +16,9 @@ class Post extends Model
 //    Everything included in the param is vulnerable to being edited except the ones not mentioned.
 //    In this case  ['title', 'excerpt', 'body', 'id'] are the exception of edit-able params.
 //    protected $fillable = ['title', 'excerpt', 'body', 'id'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
